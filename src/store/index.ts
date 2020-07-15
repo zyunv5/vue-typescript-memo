@@ -8,9 +8,14 @@ export default new Vuex.Store({
   state: {
     title:'ts+vue',
     aHelper:new ActionHelper(),
+    isShow:false,//控制是否显示编辑框
+    transMemo:null
   },
   mutations: {
-    
+    showEditMemo(state:any,editMemo:any){
+      state.transMemo=editMemo;
+      state.isShow=true
+    }
   },
   actions: {},
   modules: {}

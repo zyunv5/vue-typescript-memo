@@ -1,5 +1,6 @@
 import DataHelper from "./DataHelper";
 import ItemData from "../model/ItemData";
+import Category from '@/model/CateEnum';
 
 class ActionHelper {
   //1.负责处理数据
@@ -26,6 +27,11 @@ class ActionHelper {
     });
     //3.返回item数组
     return arrItem;
+  }
+
+  getCategoryName(categId:Category):string{
+    const arrNames=['工作','生活','学习']
+    return arrNames[categId]
   }
   //新增笔记
   add(item: ItemData): number {
