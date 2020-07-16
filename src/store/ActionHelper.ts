@@ -1,6 +1,6 @@
 import DataHelper from "./DataHelper";
 import ItemData from "../model/ItemData";
-import Category from '@/model/CateEnum';
+import Category from "@/model/CateEnum";
 
 class ActionHelper {
   //1.负责处理数据
@@ -29,9 +29,9 @@ class ActionHelper {
     return arrItem;
   }
 
-  getCategoryName(categId:Category):string{
-    const arrNames=['工作','生活','学习']
-    return arrNames[categId]
+  getCategoryName(categId: Category): string {
+    const arrNames = ["工作", "生活", "学习"];
+    return arrNames[categId];
   }
   //新增笔记
   add(item: ItemData): number {
@@ -47,7 +47,7 @@ class ActionHelper {
   //修改笔记
   edit(item: ItemData): void {
     //找到需要修改的对象
-    const editItem: ItemData | undefined = this.memoList.find((ele) => {
+    const editItem: ItemData | undefined = this.memoList.find(ele => {
       return ele.id == item.id;
     });
     //修改对象的值
@@ -62,7 +62,7 @@ class ActionHelper {
   //删除笔记
   remove(id: number): void {
     //根据id找出要删除的对象在数组中的下标
-    const index: number = this.memoList.findIndex((ele) => {
+    const index: number = this.memoList.findIndex(ele => {
       return ele.id === id;
     });
     //根据下标调用数组splice方法来删除对象

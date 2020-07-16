@@ -11,7 +11,10 @@
       </div>
       <h6 class="memo-info">
         <span class="timeStamp">{{ memo.createTime }}</span>
-        <span class="category">分类: {{ $store.state.aHelper.getCategoryName(memo.categoryId) }}</span>
+        <span class="category"
+          >分类:
+          {{ $store.state.aHelper.getCategoryName(memo.categoryId) }}</span
+        >
       </h6>
       <div class="content">
         <div class="text">{{ memo.content }}</div>
@@ -21,22 +24,22 @@
 </template>
 
 <script lang="ts">
-import { Vue, Prop, Component } from 'vue-property-decorator'
-import ItemData from '../model/ItemData'
+import { Vue, Prop, Component } from "vue-property-decorator";
+import ItemData from "../model/ItemData";
 
 @Component
 export default class MemoItem extends Vue {
-  @Prop() memo!: ItemData
+  @Prop() memo!: ItemData;
 
   doDel(): void {
-    console.log(this.memo)
-    if (!window.confirm(`确认要删除${this.memo.title}笔记吗？`)) return
-    this.$store.state.aHelper.remove(this.memo.id)
+    console.log(this.memo);
+    if (!window.confirm(`确认要删除${this.memo.title}笔记吗？`)) return;
+    this.$store.state.aHelper.remove(this.memo.id);
   }
 
   showEdit(): void {
-    const newMeme = JSON.parse(JSON.stringify(this.memo))
-    this.$store.commit('showEditMemo', newMeme)
+    const newMeme = JSON.parse(JSON.stringify(this.memo));
+    this.$store.commit("showEditMemo", newMeme);
   }
 }
 </script>
